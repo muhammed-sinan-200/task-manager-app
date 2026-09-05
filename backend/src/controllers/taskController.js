@@ -1,5 +1,10 @@
 import Task from "../models/Task.js";
 
+
+const escapeRegex = (value) => {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+};
+
 // Create Task
 const createTask = async (req, res, next) => {
     try {
@@ -42,7 +47,7 @@ const getTasks = async (req, res, next) => {
 
         if (search && search.trim()) {
             filter.title = {
-                $regex: search.trim(),
+                $regex: escapeRegex(search.trim()),
                 $options: "i",
             };
         }
