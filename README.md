@@ -60,7 +60,7 @@ Create a `.env` file inside `backend`:
 PORT=5000
 MONGO_URL=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
-JWT_EXPIRES_IN=7d
+JWT_EXPIRES_IN=1d
 CLIENT_URL=http://localhost:5173
 ```
 
@@ -108,4 +108,10 @@ task-manager-app/
 
 ## Demo
 
-The application is currently not deployed. It can be run locally using the setup instructions above.
+Live application:
+
+https://task-manager-app-tau-lilac.vercel.app/
+
+Backend API:
+
+https://task-manager-app-aeve.onrender.com
