@@ -10,7 +10,7 @@ export const registerUser = async (req, res, next) => {
         if (!name || !email || !password) {
             return res.status(400).json({
                 success: false,
-                message: "Name, email and password are required",
+                message: "Please fill in all fields",
             });
         }
 
@@ -19,7 +19,7 @@ export const registerUser = async (req, res, next) => {
         if (!emailRegex.test(email)) {
             return res.status(400).json({
                 success: false,
-                message: "Invalid email format",
+                message: "Enter a valid email address",
             });
         }
 
@@ -41,7 +41,7 @@ export const registerUser = async (req, res, next) => {
         if (existingUser) {
             return res.status(409).json({
                 success: false,
-                message: "Email already exists",
+                message: "An account with this email already exists",
             });
         }
 
@@ -75,7 +75,7 @@ export const loginUser = async (req, res, next) => {
         if (!email || !password) {
             return res.status(400).json({
                 success: false,
-                message: "Email and password are required",
+                message: "Please enter your email and password",
             });
         }
 
@@ -88,7 +88,7 @@ export const loginUser = async (req, res, next) => {
         if (!user) {
             return res.status(401).json({
                 success: false,
-                message: "Invalid credentials",
+                message: "Incorrect email or password",
             });
         }
 
@@ -100,7 +100,7 @@ export const loginUser = async (req, res, next) => {
         if (!isPasswordValid) {
             return res.status(401).json({
                 success: false,
-                message: "Invalid credentials",
+                message: "Incorrect email or password",
             });
         }
 
